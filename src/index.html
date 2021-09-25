@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta http-equiv="content-language" content="ja" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+    <canvas id="contents"></canvas>
+    <div id="media"></div>
+    <input id="bar" type="range" value="0" min="0" />
+
+    <div class="toggle-switch">
+        <input id="toggle" type="checkbox" />
+        <label for="toggle" />
+        <span></span>
+    </div>
+    <button id="btn-start" class="btn">START</button>
+    <button id="btn-unlock" class="btn">全画面表示</button>
+    <div id="error1" class="error-page" hidden>
+        <article>
+            <section>
+                <h1>ごめんなさい。🙇</h1>
+            </section>
+            <section>
+                <h3>お使いのブラウザではプログラムを動かすことができません。</h3>
+                <p>iOS版Safariの場合は最新バージョンが必要です。</p>
+                <p>mac版Safariの場合はWebGL2.0を有効化する必要があります。</p>
+            </section>
+        </article>
+    </div>
+    <div id="error2" class="error-page" hidden>
+        <article>
+            <section>
+                <h1>ごめんなさい。🙇</h1>
+            </section>
+            <section>
+                <h3>お使いのブラウザではプログラムを動かすことができません。</h3>
+                <p>必要な拡張機能を有効化することができませんでした。</p>
+            </section>
+        </article>
+    </div>
+    <script src="./index.ts"></script>
+</body>
+
+</html>
