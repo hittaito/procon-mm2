@@ -1,0 +1,27 @@
+name: Build and deploy website
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@main
+            - name: Setup Node.js
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 14.x
+            - name: Install NPM packages
+              run: npm i
+            - name: set env
+              run: echo TOKEN={{ secrets.TEXTALIVETOKEN }} > .env
+            - name: Build website
+              run: ./node_modules/parcel-bundler/bin/cli.js  build src/index.html --out-dir dist --no-source-maps --public-url https://hittaito.github.io/procon-mm2/
+            - name: Deploy website
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./dist
